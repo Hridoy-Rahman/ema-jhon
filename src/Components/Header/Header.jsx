@@ -15,8 +15,8 @@ const Header = () => {
                     </div>
                     
                 </div>
+                <hr className='border-1 border-info' />
             </div>
-            <hr />
         </div>
     );
 };
