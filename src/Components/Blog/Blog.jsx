@@ -2,9 +2,10 @@ import React from 'react';
 
 const Blog = (props) => {
     const { id, name, title, date, time, cover_image, profile_image, tagLine } = props.blog;
-    console.log(props)
-    const handleBookmark=props.handleBookmark
+    // console.log(props)
     
+    const handleBookmark=props.handleBookmark;
+    const handleReadingTime=props.handleReadingTime;
     return (
        
             <div className=''>
@@ -30,7 +31,7 @@ const Blog = (props) => {
                                 </button>
                             </div>
                         </div>
-                        <h1 className='text-4xl font-bold w-4/5 mb-4'>{title}</h1>
+                        <h1 className='text-4xl font-bold w-full lg:w-4/5 mb-4'>{title}</h1>
                         <div className='flex flex-row gap-4 mb-4'>
                             {
                                 tagLine.map((tag) => (
@@ -38,7 +39,7 @@ const Blog = (props) => {
                                 ))
                             }
                         </div>
-                        <p className='mb-8'><a className='text-blue-800' href=""><u>Mark as read</u></a></p>
+                        <p onClick={()=>handleReadingTime(props.blog)} className='text-blue-800 mb-8 cursor-pointer'>Mark as read</p>
                         <hr className='border-1 border-info mb-12' />
 
                     </div>
