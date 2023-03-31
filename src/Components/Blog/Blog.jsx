@@ -2,7 +2,9 @@ import React from 'react';
 
 const Blog = (props) => {
     const { id, name, title, date, time, cover_image, profile_image, tagLine } = props.blog;
-    console.log(props.blog)
+    console.log(props)
+    const handleBookmark=props.handleBookmark
+    
     return (
        
             <div className=''>
@@ -20,20 +22,23 @@ const Blog = (props) => {
                                 </div>
                             </div>
                             <div className='flex flex-row gap-2'>
-                                <p>{time} min read</p><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 cursor-pointer">
+                                <p>{time} min read</p>
+                                <button onClick={()=>handleBookmark(props.blog)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 cursor-pointer">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                                </svg></span>
+                                </svg>
+                                </button>
                             </div>
                         </div>
                         <h1 className='text-4xl font-bold w-4/5 mb-4'>{title}</h1>
-                        <p className='flex flex-row gap-4 mb-4'>
+                        <div className='flex flex-row gap-4 mb-4'>
                             {
                                 tagLine.map((tag) => (
-                                    <h1 className='font-bold text-zinc-600'>{tag}</h1>
+                                    <p className='font-bold text-zinc-600'>{tag}</p>
                                 ))
                             }
-                        </p>
-                        <p className='mb-8'><a className='text-blue-800' href=""><ul>Mark as read</ul></a></p>
+                        </div>
+                        <p className='mb-8'><a className='text-blue-800' href=""><u>Mark as read</u></a></p>
                         <hr className='border-1 border-info mb-12' />
 
                     </div>
